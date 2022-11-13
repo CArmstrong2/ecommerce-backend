@@ -19,6 +19,7 @@ router.get('/:id', (req, res) => {
       id:req.params.id,
     }
   })
+  res.json(oneCategory);
 });
 
 router.post('/', (req, res) => {
@@ -27,6 +28,7 @@ router.post('/', (req, res) => {
     category_name: req.body.name
   }
   const newCategory = Category.create(categoryBody)
+  res.json(newCategory)
 });
 
 router.put('/:id', (req, res) => {
