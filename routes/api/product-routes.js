@@ -34,7 +34,6 @@ router.post('/', (req, res) => {
       tagIds: [1, 2, 3, 4]
     }
   */
-
   
   Product.create(req.body)
     .then((product) => {
