@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
     include: [{model:Product}]
   });
   const categories = allCategories.map((row) => row.get({plain:true}));
-  res.json(categories)
+  res.status(200).json(categories)
 });
 
 router.get('/:id', (req, res) => {
@@ -19,7 +19,7 @@ router.get('/:id', (req, res) => {
   const oneCategory = Category.findByPk(req.params.id, {
     include:[{model:Product}]
   })
-  res.json(oneCategory);
+  res.status(200).json(oneCategory);
 });
 
 router.post('/', (req, res) => {
@@ -28,7 +28,7 @@ router.post('/', (req, res) => {
     category_name: req.body.name
   }
   const newCategory = Category.create(categoryBody)
-  res.json(newCategory)
+  res.status(200).json(newCategory)
 });
 
 router.put('/:id', (req, res) => {
@@ -41,7 +41,7 @@ router.put('/:id', (req, res) => {
       id: req.params.id
     }
   })
-  res.json(updatedCategory)
+  res.status(200).json(updatedCategory)
 });
 
 router.delete('/:id', (req, res) => {
@@ -51,7 +51,7 @@ router.delete('/:id', (req, res) => {
       id: req.params.id
     }
   })
-  res.json(deleteCategory)
+  res.status(200).json(deleteCategory)
 });
 
 module.exports = router;
